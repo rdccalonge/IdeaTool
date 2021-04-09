@@ -1,0 +1,58 @@
+<div class="row">
+    
+           
+        <div class="col-8 mt-4">
+                <span><b>Question:</b> {{questionText}}</span>
+              <table class="table table-bordered table-striped" style="width:100%;">
+                  <thead class="thead-dark">
+                      <tr>
+                          <th scope="col"></th>
+                          <th>Responses</th>
+                          <th>%</th>
+                          <th>Rank</th>
+                      </tr>
+                  </thead>
+              
+               <tbody>
+                 <tr *ngFor="let row of questionRows;let i = index">
+                   
+                      <td >{{row.text}}</td>
+                      <td>{{response[i][i + 1]}}</td>
+                      <td>{{percentage[i][i + 1]}}</td>
+                      <td>{{rank[i][i + 1]}}</td>
+                     <!-- <td *ngFor="let column of questionHeader; let x = index">	</td> -->
+                  </tr> 
+                 <tr >
+                     <td></td>
+                     <td><b>{{total}}</b></td>
+                     <td><b>{{totalpercentage}}%</b></td>
+                     <td></td>
+                 </tr>
+              </tbody>
+          </table>
+      
+           </div>
+           <div class="col-4 mt-4" style="top:50%;">
+                <canvas baseChart textBaseline="middle"
+                [data]="ChartData"
+                [labels]="ChartLabels"
+                [chartType]="ChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+            </canvas>
+            <!-- <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%;">
+                    <div class="form-group">
+                            
+                            <select class="form-control mx-auto" id="exampleSelect1" style="width:150px; text-align: center;">
+                              <option>Pie</option>
+                              <option>Bar</option>
+                              <option>Line</option>
+                              <option>Doughnut</option>
+                              <option>Radar</option>
+                            </select>
+                          </div>
+            </div> -->
+           </div>
+            
+
+</div>

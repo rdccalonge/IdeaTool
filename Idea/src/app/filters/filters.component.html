@@ -1,0 +1,23 @@
+
+
+<ul class="list-group active-filter">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Active Filters
+        <span class="badge badge-primary badge-pill">{{counter}}</span>
+    </li>
+</ul>
+<div id="filtercard" class="scroll active-filter">
+    <div *ngFor="let filters of _filters;   let x = index;" class="card border-secondary mb-3 mt-4" [attr.id]="'card' + filters.question">
+         <div class="card-body">
+            <div class="card-title font-weight-bold">{{filters.question}}</div>
+            <!-- <input type="checkbox"  name="all" [(ngModel)]='all' />Select all   -->
+            
+            <!-- <input type="checkbox"  name="all + [x]" (change)="checkAll(x)" />Select all  -->
+             <div class="form-check form-group" *ngFor="let option of filters.rows;  let i = index;">
+                <input type="checkbox" [ngClass]="'form-check-input card-' + x" [attr.id]="filters.question + '_' + (i+1)"  [(ngModel)]="option.checked" (ngModelChange)="UpdateData()"  [checked]='true'/>
+                <label [attr.for]="filters.question + '_' + (i+1)">{{option.text}}</label>
+            </div> 
+        </div> 
+    </div>
+</div>   
+<pre>{{ _filters | json}}</pre>  -->

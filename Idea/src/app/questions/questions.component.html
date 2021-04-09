@@ -1,0 +1,14 @@
+
+
+
+
+        <div class="row" id="question_body" *ngFor="let question of _finalArray">
+        
+              <app-select-one *ngIf="question.type == 'Select (Radio Button)'" [questionText]="question.text" [questionRows]="question.rows" [questionHeader]="question.headers" [response]="question.responses" [percentage]="question.percentage" [rank]="question.rank" [total]="question.total" [totalpercentage]="question.totalpercentage" class="col-12" > </app-select-one>   
+            
+        </div>
+
+
+
+
+    
